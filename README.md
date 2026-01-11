@@ -12,12 +12,12 @@ Aşağıda kutucuk (checkbox) ile gösterilen maddelerden en az birini seçtiği
 
 ### Disk Erişimi
 
-- [X]  **Blok bazlı disk erişimi** → block_id + offset
+- [ ]  **Blok bazlı disk erişimi** → block_id + offset
 - [ ]  Rastgele erişim
 
 ### VT için Page (Sayfa) Anlamı
 
-- [X]  VT hangisini kullanır? **Satır/ Sayfa** okuması
+- [ ]  VT hangisini kullanır? **Satır/ Sayfa** okuması
 
 ---
 
@@ -39,8 +39,8 @@ Aşağıda kutucuk (checkbox) ile gösterilen maddelerden en az birini seçtiği
 
 DB diske yazarken:
 
-- [X]  WAL (Write Ahead Log) İlkesi
-- [X]  Log disk (fsync vs write) sistem çağrıları farkı
+- [ ]  WAL (Write Ahead Log) İlkesi
+- [ ]  Log disk (fsync vs write) sistem çağrıları farkı
 
 ---
 
@@ -56,31 +56,20 @@ DB diske yazarken:
 
 ---
 
-# Video [Linki](https://www.youtube.com/watch?v=Nw1OvCtKPII&t=2635s) 
-Ekran kaydı. 2-3 dk. açık kaynak V.T. kodu üzerinde konunun gösterimi. Video kendini tanıtma ile başlamalıdır (Numara, İsim, Soyisim, Teknik İlgi Alanları). 
+# Video [Linki](https://youtu.be/sFRj1hKTDzM)  
 
 ---
 
-# Açıklama (Ort. 600 kelime)
+# Açıklama 
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia luctus urna, vel aliquet lacus facilisis ac. Donec quis placerat orci, efficitur consectetur lacus. Sed rhoncus erat ex, at sagittis velit mollis et. Aliquam enim orci, sollicitudin sit amet libero quis, mollis ultricies risus. Fusce tempor, felis a consequat tristique, dolor magna convallis nulla, vel ullamcorper magna mauris non ipsum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam quis imperdiet ex, at blandit sapien. Aliquam lacinia erat ac ipsum fringilla, quis vestibulum augue posuere. Nulla in enim nulla. Nunc euismod odio mauris, sed sollicitudin ex condimentum non. In efficitur egestas enim. Fusce tempus erat quis placerat convallis.
+PostgreSQL veritabanı sisteminin açık kaynak kodu, sistem programlama ve veri yapıları açısından bu çalışmada incelenmiştir. PostgreSQL’in bellek yönetimi ve disk erişim maliyetlerini azaltmaya yönelik mekanizmaları inceleme kapsamında, kaynak kod üzerindeki ilgili bölümler üzerinden gösterilerek açıklanmıştır. Özellikle bufmgr.c dosyasında yer alan ReadBuffer fonksiyonu aracılığıyla, diskten okunan sayfaların RAM’de bulunan buffer pool içerisinde tutulduğu ve tekrar eden erişimlerde disk yerine bellek kopyalarının kullanıldığı gösterilmiştir. Bu yapı veritabanlarında caching mekanizmasının temelini oluşturmaktadır.
 
-Nam sit amet tincidunt ante. Pellentesque sit amet quam interdum, pellentesque dui vel, iaculis elit. Donec sed dui sodales nulla dignissim tincidunt. Maecenas semper metus id fermentum vulputate. Pellentesque lobortis hendrerit venenatis. Nullam imperdiet, ex eget ultricies egestas, mauris nunc aliquam ante, sed consectetur tellus ex vel leo. Nunc ut erat dapibus, auctor dolor eu, pretium sem. In lacinia congue eros et finibus. Aenean auctor, leo a feugiat placerat, urna felis lacinia purus, laoreet volutpat mi nisl eget dui. Ut vitae condimentum leo.
+Ayrıca sayfa üzerinde yapılan güncellemelerde MarkBufferDirty fonksiyonu kullanılarak ilgili buffer’ın “dirty” olarak işaretlendiği ve fiziksel disk yazma işlemlerinin anında gerçekleştirilmediği görülmüştür. Yazma işlemleri buffer replacement veya checkpoint aşamasına kadar ertelendiği için çok sayıda küçük disk yazması yerine daha az sayıda toplu yazma yapılmakta bu durum da disk I/O maliyetlerini önemli ölçüde azaltmaktadır.
 
-Maecenas ex diam, vehicula et nulla vel, mattis viverra metus. Nam at ex scelerisque, semper augue lobortis, semper est. Etiam id pretium odio, eget rutrum neque. Pellentesque blandit magna vel aliquam gravida. Nullam massa nisl, imperdiet at dapibus non, cursus vehicula turpis. Vestibulum rutrum hendrerit augue. Aliquam id nisi id arcu tempor venenatis vel nec erat. Morbi sed posuere erat. Morbi et sollicitudin urna. Suspendisse ullamcorper vitae purus sit amet sodales. Nam ut tincidunt ipsum, ut varius erat. Duis congue magna nec euismod condimentum. In hac habitasse platea dictumst. Nunc mattis odio sed enim laoreet imperdiet. In hac habitasse platea dictumst. Nullam tincidunt quis.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia luctus urna, vel aliquet lacus facilisis ac. Donec quis placerat orci, efficitur consectetur lacus. Sed rhoncus erat ex, at sagittis velit mollis et. Aliquam enim orci, sollicitudin sit amet libero quis, mollis ultricies risus. Fusce tempor, felis a consequat tristique, dolor magna convallis nulla, vel ullamcorper magna mauris non ipsum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam quis imperdiet ex, at blandit sapien. Aliquam lacinia erat ac ipsum fringilla, quis vestibulum augue posuere. Nulla in enim nulla. Nunc euismod odio mauris, sed sollicitudin ex condimentum non. In efficitur egestas enim. Fusce tempus erat quis placerat convallis.
-
-Nam sit amet tincidunt ante. Pellentesque sit amet quam interdum, pellentesque dui vel, iaculis elit. Donec sed dui sodales nulla dignissim tincidunt. Maecenas semper metus id fermentum vulputate. Pellentesque lobortis hendrerit venenatis. Nullam imperdiet, ex eget ultricies egestas, mauris nunc aliquam ante, sed consectetur tellus ex vel leo. Nunc ut erat dapibus, auctor dolor eu, pretium sem. In lacinia congue eros et finibus. Aenean auctor, leo a feugiat placerat, urna felis lacinia purus, laoreet volutpat mi nisl eget dui. Ut vitae condimentum leo.
-
-Maecenas ex diam, vehicula et nulla vel, mattis viverra metus. Nam at ex scelerisque, semper augue lobortis, semper est. Etiam id pretium odio, eget rutrum neque. Pellentesque blandit magna vel aliquam gravida. Nullam massa nisl, imperdiet at dapibus non, cursus vehicula turpis. Vestibulum rutrum hendrerit augue. Aliquam id nisi id arcu tempor venenatis vel nec erat. Morbi sed posuere erat. Morbi et sollicitudin urna. Suspendisse ullamcorper vitae purus sit amet sodales. Nam ut tincidunt ipsum, ut varius erat. Duis congue magna nec euismod condimentum. In hac habitasse platea dictumst. Nunc mattis odio sed enim laoreet imperdiet. In hac habitasse platea dictumst. Nullam tincidunt quis.
+Buffer pool dolu olduğunda hangi sayfanın bellekten çıkarılacağına karar veren replacement stratejisi freelist.c dosyasında incelenmiştir. PostgreSQL’in klasik LRU algoritması yerine daha düşük senkronizasyon maliyetine sahip olan CLOCK-sweep yaklaşımını kullandığı kaynak kodda yer alan clock hand (nextVictimBuffer) yapısı ve kullanım sayacına dayalı “second chance” mantığı üzerinden gösterilmiştir. Bu yaklaşım sık kullanılan sayfaların bellekte tutulmasını sağlarken nadiren erişilen sayfaların victim olarak seçilmesine imkân tanımaktadır. Sonuç olarak bu mekanizmalar PostgreSQL’in bellek kullanımını verimli hâle getirerek disk erişimini minimize etmesini sağlamaktadır.
 
 ## VT Üzerinde Gösterilen Kaynak Kodları
 
-bufpage.h: [Linki](https://github.com/postgres/postgres/blob/master/src/include/storage/bufpage.h
-) \
 bufmgr.c: [Linki](https://github.com/postgres/postgres/blob/master/src/backend/storage/buffer/bufmgr.c) \
 freelist.c: [Linki](https://github.com/postgres/postgres/blob/master/src/backend/storage/buffer/bufmgr.c) \ 
-md.c: [Linki](https://github.com/postgres/postgres/blob/master/src/backend/storage/smgr/md.c) 
-\
-xlog.c: [Linki](https://github.com/postgres/postgres/blob/master/src/backend/access/transam/xlog.c)
+
