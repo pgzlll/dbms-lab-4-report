@@ -77,9 +77,10 @@ Maecenas ex diam, vehicula et nulla vel, mattis viverra metus. Nam at ex sceleri
 
 ## VT Üzerinde Gösterilen Kaynak Kodları
 
-bufpage.h: [Linki (https://github.com/postgres/postgres/blob/master/src/include/storage/bufpage.h
+bufpage.h: [Linki](https://github.com/postgres/postgres/blob/master/src/include/storage/bufpage.h
 ) \
 bufmgr.c: [Linki](https://github.com/postgres/postgres/blob/master/src/backend/storage/buffer/bufmgr.c) \
 freelist.c: [Linki](https://github.com/postgres/postgres/blob/master/src/backend/storage/buffer/bufmgr.c) \ 
-md.c: [Linki](https://github.com/postgres/postgres/blob/master/src/backend/storage/smgr/md.c) \
+md.c: [Linki](https://github.com/postgres/postgres/blob/master/src/backend/storage/smgr/md.c) 
+\
 xlog.c: [Linki](https://github.com/postgres/postgres/blob/master/src/backend/access/transam/xlog.c)
